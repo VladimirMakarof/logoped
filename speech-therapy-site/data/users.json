@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "password": "$2b$08$5ph/nDBJvVzMqVYMM0mVRuYfeWnB.q5HbeBS729T4yBxc2Ps1Xzoi",
+    "role": "admin",
+    "fullName": "Администратор"
+  },
+  {
+    "id": 2,
+    "username": "teacher",
+    "password": "$2b$08$QSBQpG4dG3C/USODkOr7We6BOxvgWnV1YSp4ysUejTm8KoLOaYloa",
+    "role": "teacher",
+    "fullName": "Иванова Мария Петровна"
+  },
+  {
+    "id": 3,
+    "username": "student",
+    "password": "$2b$08$16gWTKlG64/Zoe.x18gseemCexjaAt3niQR9VraqHEUYFfaTvjGcG",
+    "role": "student",
+    "fullName": "Петров Алексей",
+    "teacherId": 2
+  }
+]

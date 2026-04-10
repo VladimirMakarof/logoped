@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои студенты - Учитель</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🦋 Логопедический центр</a>
+            <div class="nav-links">
+                <span class="user-info">👤 <%= user.fullName %></span>
+                <a href="/logout" class="btn-logout">Выход</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/teacher/dashboard">📊 Панель управления</a></li>
+                <li><a href="/teacher/diary">📝 Дневник</a></li>
+                <li><a href="/teacher/students" class="active">👥 Мои студенты</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1>Мои студенты</h1>
+
+            <% if (students.length > 0) { %>
+                <div class="students-grid">
+                    <% students.forEach(s => { %>
+                        <div class="student-card">
+                            <div class="student-avatar">👤</div>
+                            <h3><%= s.fullName %></h3>
+                            <p>Логин: <%= s.username %></p>
+                        </div>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <p>У вас пока нет закрепленных студентов.</p>
+            <% } %>
+        </main>
+    </div>
+</body>
+</html>

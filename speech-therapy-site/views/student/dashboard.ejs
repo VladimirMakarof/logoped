@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет ученика - Логопедический центр</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🦋 Логопедический центр</a>
+            <div class="nav-links">
+                <span class="user-info">👤 <%= user.fullName %></span>
+                <a href="/logout" class="btn-logout">Выход</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/student/dashboard" class="active">📊 Панель управления</a></li>
+                <li><a href="/student/diary">📝 Мой дневник</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1>Личный кабинет ученика</h1>
+            
+            <div class="welcome-card">
+                <h2>Добро пожаловать, <%= user.fullName %>!</h2>
+                <p>Здесь вы можете просматривать свои учебные записи и домашние задания.</p>
+            </div>
+
+            <section class="content-section">
+                <h2>Последние записи в дневнике</h2>
+                <% if (diaryEntries.length > 0) { %>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Тема</th>
+                                <th>Домашнее задание</th>
+                                <th>Оценка</th>
+                                <th>Комментарий учителя</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% diaryEntries.slice(0, 10).forEach(e => { %>
+                                <tr>
+                                    <td><%= e.date %></td>
+                                    <td><%= e.subject %></td>
+                                    <td><%= e.homework %></td>
+                                    <td>
+                                        <span class="grade grade-<%= e.grade %>"><%= e.grade %></span>
+                                    </td>
+                                    <td><%= e.comment %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p>Пока нет записей в дневнике.</p>
+                <% } %>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

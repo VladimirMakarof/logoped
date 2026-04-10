@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логопедический центр - Главная</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🦋 Логопедический центр</a>
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="#services">Услуги</a>
+                <a href="#about">О нас</a>
+                <a href="#contact">Контакты</a>
+                <% if (user && user.userId) { %>
+                    <a href="/logout" class="btn-logout">Выход</a>
+                <% } else { %>
+                    <a href="/login" class="btn-login">Войти</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Профессиональная логопедическая помощь</h1>
+            <p>Индивидуальный подход к каждому ученику</p>
+            <a href="/login" class="btn-primary">Начать занятия</a>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🗣️</div>
+                    <h3>Постановка звуков</h3>
+                    <p>Коррекция произношения отдельных звуков</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Развитие речи</h3>
+                    <p>Расширение словарного запаса и развитие связной речи</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Профилактика дисграфии</h3>
+                    <p>Подготовка к обучению грамоте</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧩</div>
+                    <h3>Логопедический массаж</h3>
+                    <p>Нормализация тонуса артикуляционных мышц</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <h2>О нашем центре</h2>
+            <p>Мы предлагаем профессиональные логопедические услуги для детей и взрослых. 
+               Наши специалисты имеют многолетний опыт работы и используют современные методики.</p>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-number">10+</span>
+                    <span class="feature-text">лет опыта</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-number">500+</span>
+                    <span class="feature-text">довольных клиентов</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-number">95%</span>
+                    <span class="feature-text">успешных результатов</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <p>📍 Адрес: г. Москва, ул. Примерная, д. 10</p>
+                <p>📞 Телефон: +7 (999) 123-45-67</p>
+                <p>✉️ Email: info@logoped-center.ru</p>
+                <p>⏰ Режим работы: Пн-Пт 9:00-20:00</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Логопедический центр. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
