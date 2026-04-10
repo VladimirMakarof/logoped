@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : 'Логопедический центр' %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🦋 Логопедический центр</a>
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/#services">Услуги</a>
+                <a href="/#about">О нас</a>
+                <a href="/#contact">Контакты</a>
+                <% if (user && user.userId) { %>
+                    <a href="/logout" class="btn-logout">Выход</a>
+                <% } else { %>
+                    <a href="/login" class="btn-login">Войти</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+
+    <%- body %>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Логопедический центр. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

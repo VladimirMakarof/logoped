@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель учителя - Логопедический центр</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🦋 Логопедический центр</a>
+            <div class="nav-links">
+                <span class="user-info">👤 <%= user.fullName %></span>
+                <a href="/logout" class="btn-logout">Выход</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="/teacher/dashboard" class="active">📊 Панель управления</a></li>
+                <li><a href="/teacher/diary">📝 Дневник</a></li>
+                <li><a href="/teacher/students">👥 Мои студенты</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <h1>Панель учителя</h1>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Мои студенты</h3>
+                    <p class="stat-number"><%= students.length %></p>
+                </div>
+                <div class="stat-card">
+                    <h3>Записей в дневнике</h3>
+                    <p class="stat-number"><%= diaryEntries.length %></p>
+                </div>
+            </div>
+
+            <section class="content-section">
+                <h2>Последние записи</h2>
+                <% if (diaryEntries.length > 0) { %>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Дата</th>
+                                <th>Ученик</th>
+                                <th>Тема</th>
+                                <th>Оценка</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% diaryEntries.slice(0, 5).forEach(e => { %>
+                                <tr>
+                                    <td><%= e.date %></td>
+                                    <td><%= students.find(s => s.id === e.studentId)?.fullName || 'Неизвестно' %></td>
+                                    <td><%= e.subject %></td>
+                                    <td><%= e.grade %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p>Пока нет записей в дневнике.</p>
+                <% } %>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
